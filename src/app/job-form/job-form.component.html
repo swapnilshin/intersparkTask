@@ -1,0 +1,87 @@
+<div class="row">
+  <div class="col-6 offset-3">
+    <ng-container *ngIf="myForm; else loading">
+      <form [formGroup]="myForm" (ngSubmit)="update()">
+        <div class="form-group">
+          <label for="jnumber">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="jnumber"
+            placeholder="Enter Job Number"
+            formControlName="jnumber"
+          />
+        </div>
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            placeholder="Enter Title"
+            formControlName="jtitle"
+          />
+        </div>
+        <div class="form-group">
+          <label for="jstartDate">Start Date</label>
+          <input
+            type="date"
+            class="form-control"
+            id="jstartDate"
+            placeholder="Enter Start Date"
+            formControlName="jstartDate"
+          />
+        </div>
+        <div class="form-group">
+          <label for="jcloseDate">Close Date</label>
+          <input
+            type="date"
+            class="form-control"
+            id="jcloseDate"
+            placeholder="Enter Close Date"
+            formControlName="jcloseDate"
+          />
+        </div>
+        <div class="form-group">
+          <label for="jopeningCount">Opening Count</label>
+          <input
+            type="number"
+            class="form-control"
+            id="jopeningCount"
+            placeholder="Opening Count"
+            min="0"
+            formControlName="jopeningCount"
+          />
+        </div>
+        <div class="form-group">
+          <label for="jnotes">Notes</label>
+          <textarea
+            class="form-control"
+            id="jnotes"
+            rows="3"
+            formControlName="jnotes"
+          ></textarea>
+        </div>
+        <div class="form-group form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="jexperieceRequired"
+            formControlName="jexperieceRequired"
+          />
+          <label class="form-check-label" for="jexperieceRequired"
+            >Experience Required</label
+          >
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary mt-2"
+          [disabled]="myForm.invalid"
+        >
+          {{ sbmitBtnName }}
+        </button>
+      </form>
+    </ng-container>
+    <ng-template #loading>loading</ng-template>
+  </div>
+</div>
